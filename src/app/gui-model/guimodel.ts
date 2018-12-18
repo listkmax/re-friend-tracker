@@ -236,10 +236,12 @@ export class GuiModel {
                         },
                         {
                             "type": "button",
-                            "name": "filter",
+                            "name": "AddActivity    ",
                             "icon": "fa-superpowers",
-                            "page": "friendactivityspage"
-                        }
+                            "form": {
+                                "form": "AddActivityForm"
+                            }
+                        },
                         {
                             "type": "list",
                             "icon": "fa-user",
