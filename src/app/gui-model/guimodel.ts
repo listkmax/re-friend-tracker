@@ -351,7 +351,7 @@ export class GuiModel {
                         {
                             "type": "list",
                             "icon": "fa-bandcamp",
-                            "color": "sun flower",
+                            "color": "orange",
                             "search": true, "url": "/activity",
                             "form": {
                                 "form": "ActivityForm"
