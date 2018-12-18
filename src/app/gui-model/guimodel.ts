@@ -109,6 +109,14 @@ export class GuiModel {
                         {
                             "type": "okButton",
                             "name": "Ok"
+                        },
+                        {
+                            "id": "comment",
+                            "type": "text",
+                            "name": "Comments",
+                            "width": 2,
+                            "height": 4,
+                            "maxLength": 5000,
                         }
                     ]
                 },
@@ -149,16 +157,23 @@ export class GuiModel {
                         "type": "text",
                         "name": "GroupName",
                         "width": 2, "required": true
-                    }, {
-                        "type": "deleteButton",
-                        "name": "Delete"
-                    }, {
-                        "type": "cancelButton",
-                        "name": "Cancel"
-                    }, {
-                        "type": "okButton",
-                        "name": "Ok"
-                    }]
+                    },
+                        {
+                            "id": "creation date",
+                            "type": "date",
+                            "name": "CreationDate",
+                            "width": 2
+                        },
+                        {
+                            "type": "deleteButton",
+                            "name": "Delete"
+                        }, {
+                            "type": "cancelButton",
+                            "name": "Cancel"
+                        }, {
+                            "type": "okButton",
+                            "name": "Ok"
+                        }]
                 },
                 {
                     "id": "ActivityForm",
@@ -166,7 +181,7 @@ export class GuiModel {
                     "formFieldList": [{
                         "id": "name",
                         "type": "text",
-                        "name": "Activity Name",
+                        "name": "ActivityName",
                         "width": 2,
                         "required": true
                     },
@@ -175,7 +190,22 @@ export class GuiModel {
                             "type": "autocomplete",
                             "name": "Location",
                             "url": "/location"
-                        }, {
+                        },
+                        {
+                            "id": "date",
+                            "type": "date",
+                            "name": "Date",
+                            "width": 2
+                        },
+                        {
+                            "id": "comment",
+                            "type": "text",
+                            "name": "Comments",
+                            "width": 2,
+                            "height": 4,
+                            "maxLength": 5000,
+                        },
+                        {
                             "type": "cancelButton",
                             "name": "Cancel"
                         }, {
@@ -236,11 +266,10 @@ export class GuiModel {
                         },
                         {
                             "type": "button",
-                            "name": "AddActivity",
-                            "icon": "fa-superpowers",
-                            "form": {
-                                "form": "AddActivityForm"
-                            }
+                            "name": "FriendActivity",
+                            "icon": "fa-superpower",
+                            "color": "yellow",
+                            "page": "friendactivitypage",
                         },
                         {
                             "type": "list",
@@ -304,7 +333,7 @@ export class GuiModel {
                             "form": {
                                 "form": "GroupForm"
                             }
-                        },]
+                        }, ]
                 },
                 {
                     "id": "activitypage",
@@ -317,7 +346,8 @@ export class GuiModel {
                         "color": "orange",
                         "form": {
                             "form": "ActivityForm"
-                        },
+                        }
+                    },
                         {
                             "type": "list",
                             "icon": "fa-bandcamp",
@@ -325,22 +355,34 @@ export class GuiModel {
                             "search": true, "url": "/activity",
                             "form": {
                                 "form": "ActivityForm"
-                            },
+                            }
                         }]
                 },
                 {
-                    "id": "friendactivityspage",
+                    "id": "friendactivitypage",
                     "elementList": [{
                         "type": "backbutton",
-                    }, {
-                        "type": "button",
-                        "name": "Friends",
-                        "icon": "fa-superpowers",
-                        "color": "lime",
-                        "form": {
-                            "form": "FriendForm"
-                        }
-                    }]
+                    },
+                        {
+                            "type": "button",
+                            "color": "lime",
+                            "icon": "fa-superpowers",
+                            "search": true,
+                            "form": {
+                                "form": "AddActivityForm"
+                            }
+                        },
+                        {
+                            "type": "list",
+                            "name": "Friends",
+                            "icon": "fa-superpowers",
+                            "color": "lime",
+                            "search": true,
+                            "url": "/friend",
+                            "form": {
+                                "form": "FriendForm"
+                            }
+                        }]
                 }
             ]
         }
